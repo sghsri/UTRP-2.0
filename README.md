@@ -2,6 +2,16 @@
 
 ![logo](/public/icons/icon128.png)
 
+## How to begin Development
+
+0. Run either `npm run dev` to build the extension and watch for changes
+1. go to `Chrome://extensions` and toggle Developer Mode
+2. Click the load unpacked button and then navigate to the "build" folder and load from there
+3. The extension should be running now!
+4. I've added in `hot_reload.js` hot reloading for the extension! no need to ever have to manually refresh the extension again :)
+5. Add your injection code into `content.js`. For content scripts, Treat `content.js` as index.js or App.js, everything should stem from it.
+6. For the Extension Popup, index.js is where all your code should exist. It is injected into the `index.html` file in the `public` folder
+
 ## NPM Scripts:
 
 1. `npm install` will install all the dependencies you will need
@@ -10,16 +20,8 @@
 4. `npm run prod` will build a PRODUCTION version of the extension ONCE.
 5. `npm test` will run all the tests (files that have the `.test.js` extension)in the `tests` folder once.
 
-## How to begin Development
-
-0. Run either `npm run dev` or `npm run prod` to build the extension
-1. go to `Chrome://extensions` and toggle Developer Mode
-2. Click the load unpacked button and then navigate to the "build" folder and load from there
-3. The extension should be running now!
-4. Add your injection code into `content.js`. For content scripts, Treat `content.js` as index.js or App.js, everything should stem from it.
-5. For the Extension Popup, index.js is where all your code should exist. It is injected into the `index.html` file in the `public` folder
-
 ## More Information:
+
 -   Content scripts `(src/content.js)` run on each tab that is matched by the site regex specified in manifest.json. For our purposes, we've set this to work on "all urls".
 -   Background scripts `(src/background.js)` persist across all chrome windows and tabs (i.e there is only one instance of the background script running). We want to put things like modifying the storage, handling events/notifications, etc here.
 -   IMPORTANT: You want to be familiar with the [Chrome APIs](https://developer.chrome.com/extensions/api_index).
