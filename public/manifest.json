@@ -1,0 +1,36 @@
+{
+    "name": "UT Registration Plus",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "permissions": [
+        "tabs",
+        "declarativeContent",
+        "storage",
+        "*://*.utdirect.utexas.edu/apps/registrar/course_schedule/*",
+        "*://*.utexas.collegescheduler.com/*",
+        "*://*.catalog.utexas.edu/ribbit/",
+        "*://*.registrar.utexas.edu/schedules/*",
+        "*://*.login.utexas.edu/login/*"
+    ],
+    "description": "Improves the course registration process at the University of Texas at Austin!",
+    "browser_action": {
+        "default_popup": "index.html"
+    },
+    "web_accessible_resources": ["static/media/*", "*"],
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "css": ["/static/css/content.css", "/static/css/0.chunk.css"],
+            "js": ["/static/js/0.chunk.js", "/static/js/content.js"]
+        }
+    ],
+    "background": {
+        "page": "bg.html",
+        "persistent": true
+    },
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    }
+}
