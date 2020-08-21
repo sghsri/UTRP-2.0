@@ -20,7 +20,7 @@
     "content_scripts": [
         {
             "matches": ["http://*/*", "https://*/*"],
-            "css": ["/static/css/content.css", "/static/css/0.chunk.css"],
+            "css": ["/static/css/content.css"],
             "js": ["/static/js/0.chunk.js", "/static/js/content.js"]
         }
     ],
@@ -29,8 +29,8 @@
         "persistent": true
     },
     "icons": {
-        "16": "icon16.png",
-        "48": "icon48.png",
-        "128": "icon128.png"
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
     }
 }
