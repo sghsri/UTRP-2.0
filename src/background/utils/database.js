@@ -1,10 +1,10 @@
 import resolve from "resolve";
 
 var GRADES_DATABASE = {};
-async function executeQuery(database, query) {
+async function executeQuery(query) {
     return new Promise((resolve, reject) => {
         try {
-            var res = database.exec(query)[0];
+            var res = GRADES_DATABASE.exec(query)[0];
             console.log("executeQuery -> res", res);
             resolve(res);
         } catch (e) {
@@ -15,10 +15,10 @@ async function executeQuery(database, query) {
 
 /* Load the database*/
 async function loadDataBase() {
-    let dbFile = await loadBinaryFile("grades.db");
+    let dbFile = await loadBinaryFile("sql/grades.db");
     GRADES_DATABASE = new SQL.Database(dbFile);
     console.log("loadDataBase -> GRADES_DATABASE", GRADES_DATABASE);
-    // await executeQuery(GRADES_DATABASE, "select * from agg;"); for testing
+    // await executeQuery("select * from agg;"); for testing
 }
 
 /* load the database from file */
