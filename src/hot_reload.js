@@ -19,7 +19,7 @@ async function getBuildInfoFile(dir) {
 
 async function assessValidity(dir) {
     let files = await filesInDirectory(dir);
-    let manifest_files = ["0.chunk.css", "content.css", "0.chunk.js", "background.js", "content.js", "hot_reload.js", "main.js"];
+    let manifest_files = ["content.css", "0.chunk.js", "background.js", "content.js", "hot_reload.js", "main.js", "main.css"];
     for (let file_name of manifest_files) {
         let file = files.find(f => f.name === file_name);
         if (!file) {

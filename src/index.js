@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
-
+import TestComponent from "./content/components/TestComponent";
 class ExtensionPopup extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +13,12 @@ class ExtensionPopup extends Component {
     }
 
     render() {
-        return <div>{this.state.sriram}</div>;
+        return (
+            <div>
+                {this.state.sriram}
+                <TestComponent />
+            </div>
+        );
     }
 }
 setTimeout(function () {
