@@ -3,9 +3,9 @@ import { sleep } from "../lib/constants/time";
 import { debugLog, IS_EXT_DEV_MODE } from "../lib/utils/debug";
 
 import { setDefaultOptions, getOptionsValue, setOptionsValue } from "./utils/options";
-
 var cheerio = require("cheerio");
-
+import { loadDataBase } from "./utils/database";
+let grades = {};
 onInit();
 
 function onInit() {
@@ -13,6 +13,7 @@ function onInit() {
         debugLog("extension storage:", storage);
     });
     setUpStorage();
+    loadDataBase();
 }
 
 function setUpStorage() {
@@ -44,17 +45,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, response) {
             setOptionsValue(request.key, request.value, response);
             break;
         default:
-            const xhr = new XMLHttpRequest();
-            const method = request.method ? request.method.toUpperCase() : "GET";
-            xhr.open(method, request.url, true);
-            xhr.onload = () => {
-                response(xhr.responseText);
-            };
-            xhr.onerror = () => response(xhr.statusText);
-            if (method === "POST") {
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            }
-            xhr.send(request.data);
+            response({ message: "invalid message key" });
             break;
     }
     return true;

@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
 import ContentStyles from "./content.module.css";
-import TestComponent from "./components/TestComponent";
-let currentSite = "";
+import UTRegButton from "./components/UTRegButton/UTRegButton";
+
+// step 1, we need to inject the Regbutton 
+
+
 
 class Main extends Component {
     constructor(props) {
@@ -17,9 +20,8 @@ class Main extends Component {
 
     render() {
         return (
-            <div className={ContentStyles.testFade}>
-                {this.state.sriram}
-                <TestComponent />
+            <div>
+                <UTRegButton />
             </div>
         );
     }
