@@ -4,8 +4,8 @@ import $ from "jquery";
 import ContentStyles from "./content.module.css";
 import UTRegButton from "./components/UTRegButton/UTRegButton";
 
-// step 1, we need to inject the Regbutton 
-
+// step 1, we need to decide which type of page we're on and handle the logic differently
+let CURRENT_URL = window.location.href;
 
 
 class Main extends Component {
