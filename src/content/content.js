@@ -4,9 +4,8 @@ import $ from "jquery";
 import ContentStyles from "./content.module.css";
 import UTRegButton from "./components/UTRegButton/UTRegButton";
 
-// step 1, we need to decide which type of page we're on and handle the logic differently
+// step 1, we need to decide which type of page we're on and handle the logic differently ss
 let CURRENT_URL = window.location.href;
-
 
 class Main extends Component {
     constructor(props) {
